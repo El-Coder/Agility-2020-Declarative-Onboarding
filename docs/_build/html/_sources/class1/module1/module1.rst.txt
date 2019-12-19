@@ -1,10 +1,15 @@
-Module – Installing a BIG-IP Virtual Edition
-=============================================
+Declarative Onboarding
+===================
 
-.. TODO:: Needs module description
+This section of the demo is for the integration of Declarative Onboarding. The goal is to facilitate an automated configuration of L1-3 with a BIG-IP. 
 
-In this module you will learn how to install a |f5| |bip| |ve| into your
-environment.
+**Assumptions**
+
+This lab guide assumes you know how to use postman. If not follow this tutorial https://clouddocs.f5.com/training/community/waf/html/class7/module1/lab1/lab1.html
+
+**Prerequisites**
+
+Expected time to complete: **15 Minutes**
 
 .. toctree::
    :maxdepth: 1

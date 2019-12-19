@@ -5,7 +5,7 @@
   <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3-staging.js"></script>
   <!--Production:-->
   <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3.js"></script>
-    <title>2.1.1. Lab – Download the BIG-IP Virtual Edition Image</title>
+    <title>2.1.1. Declarative Onboarding – Getting Started</title>
   
 
   <meta charset="utf-8">
@@ -14,7 +14,7 @@
   <!-- F5 metadata -->
   <meta name="kb_doc_type" content="Manual"/>
   <meta name="kb_doc_type" content="User Guide"/>
-  <meta name="title" content="2.1.1. Lab – Download the BIG-IP Virtual Edition Image"/>
+  <meta name="title" content="2.1.1. Declarative Onboarding – Getting Started"/>
   <meta name="product" content="Getting Started with F5 BIG-IP"/>
   <meta name="version" content=""/>
   <meta name="updated_date"  content="None"/>
@@ -36,7 +36,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2.1.1. Lab – Download the BIG-IP Virtual Edition Image &#8212; Getting Started with F5 BIG-IP  documentation</title>
+    <title>2.1.1. Declarative Onboarding – Getting Started &#8212; Getting Started with F5 BIG-IP  documentation</title>
     <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/f5_agility_theme.css" type="text/css" />
@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor" href="lab2.html" />
-    <link rel="prev" title="2.1. Module – Installing a BIG-IP Virtual Edition" href="module1.html" />
+    <link rel="prev" title="2.1. Declarative Onboarding" href="module1.html" />
   </head><body>
   <div id="clouddocs-header"></div>
 
@@ -75,9 +75,12 @@
         <h5>Current Page</h5>
         <span class="nav-sidebartoc">
             <ul>
-<li><a class="reference internal" href="#">2.1.1. Lab – Download the BIG-IP Virtual Edition Image</a><ul>
-<li><a class="reference internal" href="#task-open-a-web-browser">2.1.1.1. Task – Open a Web Browser</a></li>
-<li><a class="reference internal" href="#task-download-the-image">2.1.1.2. Task – Download the Image</a></li>
+<li><a class="reference internal" href="#">2.1.1. Declarative Onboarding – Getting Started</a><ul>
+<li><a class="reference internal" href="#deploy-udf">2.1.1.1. Deploy UDF</a></li>
+<li><a class="reference internal" href="#login-into-big-ip">2.1.1.2. Login into BIG-IP</a></li>
+<li><a class="reference internal" href="#configure-postman-app">2.1.1.3. Configure Postman App</a></li>
+<li><a class="reference internal" href="#send-declaration">2.1.1.4. Send Declaration</a></li>
+<li><a class="reference internal" href="#verify-changes-on-big-ip">2.1.1.5. Verify Changes on BIG-IP</a></li>
 </ul>
 </li>
 </ul>
@@ -90,7 +93,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - Getting Started with F5 BIG-IP</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="module1.html">2.1. Module – Installing a BIG-IP Virtual Edition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="module1.html">2.1. Declarative Onboarding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.2. Module – Installing a BIG-IP Appliance</a></li>
 </ul>
 </li>
@@ -111,70 +114,279 @@
     <article class="docs-container site-article-inner">
             <nav class="site-breadcrumb-nav site-nav">
           <ul class="site-breadcrumb-list">
-            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">Getting Started with F5 BIG-IP </a> &gt; 2.1.1. Lab – Download the BIG-IP Virtual Edition Image</li>
+            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">Getting Started with F5 BIG-IP </a> &gt; 2.1.1. Declarative Onboarding – Getting Started</li>
           </ul>
       </nav>
       
       
 
     
-  <div class="section" id="lab-download-the-bip-ve-image">
-<h1>2.1.1. Lab – Download the BIG-IP Virtual Edition Image<a class="headerlink" href="#lab-download-the-bip-ve-image" title="Permalink to this headline">¶</a></h1>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">Needs lab description</p>
-</div>
-<p>This lab will teach you how to download the BIG-IP Virtual Edition image to your system.</p>
-<div class="section" id="task-open-a-web-browser">
-<h2>2.1.1.1. Task – Open a Web Browser<a class="headerlink" href="#task-open-a-web-browser" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Todo</p>
-<p class="last">Needs task description</p>
-</div>
-<p>In this task you will open a web browser and navigate to the F5 Networks Downloads
-site.</p>
+  <div class="section" id="declarative-onboarding-getting-started">
+<h1>2.1.1. Declarative Onboarding – Getting Started<a class="headerlink" href="#declarative-onboarding-getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">An account is required to download software.  You can create one at
-<a class="reference external" href="https://login.f5.com/resource/registerEmail.jsp">https://login.f5.com/resource/registerEmail.jsp</a></p>
+<p class="last">This lab already has RPM file.
+To manually install follow <a class="reference external" href="https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/installation.html">https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/installation.html</a></p>
 </div>
-<p>Follow these steps to complete this task:</p>
-<ol class="arabic">
-<li><p class="first">Open your web browser</p>
-</li>
-<li><p class="first">Navigate to <a class="reference external" href="https://downloads.f5.com">https://downloads.f5.com</a></p>
-</li>
-<li><p class="first">Login with your username and password.</p>
-</li>
-<li><p class="first">After logging in you should see the following window:</p>
-<p><img alt="image1" src="../../_images/image001.png" /></p>
-</li>
+<div class="section" id="deploy-udf">
+<h2>2.1.1.1. Deploy UDF<a class="headerlink" href="#deploy-udf" title="Permalink to this headline">¶</a></h2>
+<img alt="../../_images/udf.png" src="../../_images/udf.png" />
+<ol class="arabic simple">
+<li>Navigate to <a class="reference external" href="https://udf.f5.com">https://udf.f5.com</a>.</li>
+<li>Open “Blueprints” in the left menu bar.</li>
+<li>In the search bar enter, “A&amp;O Toolchain Demo”.</li>
+<li>Click the green “Deploy” button.</li>
+<li>Open “Deployments” in the left menu bar.</li>
+<li>In the “A&amp;O Toolchain Demo” tile, click “Start”.</li>
+<li>In the “A&amp;O Toolchain Demo” tile, click “Details”.</li>
+<li>Open “Components” in the menu bar.</li>
+<li>Wait until all components have started.</li>
+<li>Under the “Systems” in the “win2016” tile, click the “Access” dropdown and click “RDP”.</li>
+</ol>
+<img alt="../../_images/rdp.png" src="../../_images/rdp.png" />
+</div>
+<div class="section" id="login-into-big-ip">
+<h2>2.1.1.2. Login into BIG-IP<a class="headerlink" href="#login-into-big-ip" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Open the RDP with the Credentials: Adminstrator - YLwbzexeWL9AT</li>
+<li>Open Chrome.</li>
+</ol>
+<img alt="../../_images/chrome.png" src="../../_images/chrome.png" />
+<ol class="arabic simple" start="3">
+<li>Go to “<a class="reference external" href="https://10.1.1.4/">https://10.1.1.4/</a>”.</li>
+<li>Login Credentials: admin - <a class="reference external" href="mailto:P&#37;&#52;&#48;sswerd">P<span>&#64;</span>sswerd</a></li>
+</ol>
+<img alt="_static/DO_Chrome.png" src="_static/DO_Chrome.png" />
+<ol class="arabic simple" start="5">
+<li>Verify BIG-IP isn’t already configured.</li>
 </ol>
 </div>
-<div class="section" id="task-download-the-image">
-<h2>2.1.1.2. Task – Download the Image<a class="headerlink" href="#task-download-the-image" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-2">
-<p class="first admonition-title">Todo</p>
-<p class="last">Needs task description</p>
+<div class="section" id="configure-postman-app">
+<h2>2.1.1.3. Configure Postman App<a class="headerlink" href="#configure-postman-app" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Open the Postman application.</li>
+</ol>
+<img alt="../../_images/desktop.png" src="../../_images/desktop.png" />
+<ol class="arabic simple" start="2">
+<li>At the bottom of the page in grey text select “Skip signing in and take me straight to the app”.</li>
+</ol>
+<img alt="../../_images/skip.png" src="../../_images/skip.png" />
+<ol class="arabic simple" start="3">
+<li>If presented with one, exit the pop-up screen. Toggle off “SSL certification verification” by navigating to File then Settings then under the General tab, toggle SSL certification verification.</li>
+</ol>
+<img alt="../../_images/settings.png" src="../../_images/settings.png" />
+<img alt="../../_images/ssl.png" src="../../_images/ssl.png" />
 </div>
-<p>In this task we will download the F5 Networks BIG-IP Virtual Edition image to your system</p>
-<p>Follow these steps to complete this task:</p>
-<ol class="arabic">
-<li><p class="first">Click the ‘Find a Download’ button.</p>
-<img alt="../../_images/image002.png" src="../../_images/image002.png" />
-</li>
-<li><p class="first">Click the link that contains the BIG-IP TMOS software version you would like
-to download.</p>
+<div class="section" id="send-declaration">
+<h2>2.1.1.4. Send Declaration<a class="headerlink" href="#send-declaration" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>In the Collections tab click “Declarative Onboarding Collection”.</li>
+<li>Click the request “Get Declarative Onboarding Version Info”.</li>
+<li>Click the send button and ensure that the response is 200.</li>
+</ol>
+<img alt="../../_images/2_1-1.png" src="../../_images/2_1-1.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When you log onto BIG-IP it is not onboarded.</p>
+</div>
+<img alt="../../_images/2_1.png" src="../../_images/2_1.png" />
+<ol class="arabic simple" start="4">
+<li>Now we will onboard the BIG-IP. Click the request “POST DO Declaration to Configue BIG-IP”.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For the regKey field use a valid license key here.</p>
+</div>
+<div class="highlight-JSON notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="p">{</span>
+     <span class="nt">&quot;schemaVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;Device&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;async&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+     <span class="nt">&quot;Common&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;Tenant&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;ip-10-1-1-4.us-west-2.compute.internal&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;myLicense&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;License&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;licenseType&quot;</span><span class="p">:</span> <span class="s2">&quot;regKey&quot;</span><span class="p">,</span>
+<span class="hll">             <span class="nt">&quot;regKey&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAAA-BBBBB-CCCCC-DDDDD-EEEEEEE&quot;</span>
+</span>         <span class="p">},</span>
+         <span class="nt">&quot;myProvisioning&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;Provision&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;ltm&quot;</span><span class="p">:</span> <span class="s2">&quot;nominal&quot;</span>
+         <span class="p">},</span>
+         <span class="nt">&quot;myDns&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;DNS&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;nameServers&quot;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="s2">&quot;8.8.8.8&quot;</span>
+             <span class="p">],</span>
+             <span class="nt">&quot;search&quot;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="s2">&quot;f5.com&quot;</span>
+             <span class="p">]</span>
+         <span class="p">},</span>
+         <span class="nt">&quot;myNtp&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;NTP&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;servers&quot;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="s2">&quot;0.pool.ntp.org&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;1.pool.ntp.org&quot;</span>
+             <span class="p">],</span>
+             <span class="nt">&quot;timezone&quot;</span><span class="p">:</span> <span class="s2">&quot;UTC&quot;</span>
+         <span class="p">},</span>
+         <span class="nt">&quot;internal&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;VLAN&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;interfaces&quot;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="p">{</span>
+                     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1.1&quot;</span><span class="p">,</span>
+                     <span class="nt">&quot;tagged&quot;</span><span class="p">:</span> <span class="kc">false</span>
+                 <span class="p">}</span>
+             <span class="p">]</span>
+         <span class="p">},</span>
+         <span class="nt">&quot;internal-self&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;SelfIp&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1.10.99/24&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;vlan&quot;</span><span class="p">:</span> <span class="s2">&quot;internal&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;allowService&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;trafficGroup&quot;</span><span class="p">:</span> <span class="s2">&quot;traffic-group-local-only&quot;</span>
+         <span class="p">},</span>
+         <span class="nt">&quot;external&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;VLAN&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;interfaces&quot;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="p">{</span>
+                     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2&quot;</span><span class="p">,</span>
+                     <span class="nt">&quot;tagged&quot;</span><span class="p">:</span> <span class="kc">false</span>
+                 <span class="p">}</span>
+             <span class="p">]</span>
+         <span class="p">},</span>
+         <span class="nt">&quot;external-self&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;SelfIp&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1.20.99/24&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;vlan&quot;</span><span class="p">:</span> <span class="s2">&quot;external&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;allowService&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;trafficGroup&quot;</span><span class="p">:</span> <span class="s2">&quot;traffic-group-local-only&quot;</span>
+         <span class="p">},</span>
+         <span class="nt">&quot;external_default_gateway&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;Route&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;gw&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1.10.9&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;mtu&quot;</span><span class="p">:</span> <span class="mi">1500</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In DO you can only <strong>POST</strong> and <strong>GET</strong>. Can’t <strong>PATCH</strong> You will overwrite things</p>
+</div>
+<ol class="arabic simple" start="5">
+<li>Click the send button. If you get a status code of 202 wait a few minutes.</li>
+</ol>
+<img alt="../../_images/2_1-2.png" src="../../_images/2_1-2.png" />
+<ol class="arabic simple" start="6">
+<li>Click the request “See Status of Declaration” then click the send button to see if onboarding is complete. You should get a 200 OK from Postman once onboarding process is done.</li>
+</ol>
+<img alt="../../_images/2_1-3.png" src="../../_images/2_1-3.png" />
+</div>
+<div class="section" id="verify-changes-on-big-ip">
+<h2>2.1.1.5. Verify Changes on BIG-IP<a class="headerlink" href="#verify-changes-on-big-ip" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Log back into BIG-IP and to see changes for DNS go to configuration utility, click the Configuration tab then under the Device tab click DNS.</li>
+</ol>
+<img alt="../../_images/dns.png" src="../../_images/dns.png" />
+<ol class="arabic simple" start="2">
+<li>To see changes for NTP go to configuration utility, click the Configuration tab then under the Device tab click NTP.</li>
+</ol>
+<img alt="../../_images/ntp.png" src="../../_images/ntp.png" />
+<ol class="arabic simple" start="3">
+<li>To see changes for the internal and external VLANs go to configuration utility, click the Network tab then under the VLANs tab click VLAN list.</li>
+</ol>
+<img alt="../../_images/vlan.png" src="../../_images/vlan.png" />
+<ol class="arabic simple" start="4">
+<li>To see changes for the internal-self and external-self VLANs go to configuration utility, click the Network tab then click the Self IPs tab.</li>
+</ol>
+<img alt="../../_images/selfip.png" src="../../_images/selfip.png" />
+<ol class="arabic simple" start="5">
+<li>To see changes for external_default_gateway go to configuration utility, click the Network tab then click the Routes tab.</li>
+</ol>
+<img alt="../../_images/external_gw.png" src="../../_images/external_gw.png" />
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Be sure to click a link that has “Virtual Edition” in the name</p>
+<p class="last">Don’t revoke license</p>
 </div>
-</li>
-<li><p class="first">Find the image appropriate for your hypervisor</p>
-</li>
-<li><p class="first">Download the image and save it to you local system</p>
-</li>
-</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is the end of the lab</p>
+</div>
 </div>
 </div>
 
@@ -184,7 +396,7 @@ to download.</p>
      <div class="row next-prev-btn-row">
        <div class="col-lg-12">
        
-        <a href="module1.html" title="2.1. Module – Installing a BIG-IP Virtual Edition" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+        <a href="module1.html" title="2.1. Declarative Onboarding" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
        
        
           <a href="lab2.html" title="2.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
