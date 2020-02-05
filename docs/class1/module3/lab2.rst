@@ -83,7 +83,7 @@ Below is our declaration for **BIGIP-02**.  Copy **all of** the declaration to b
                 "mtu": 1500,
                 "interfaces": [
                     {
-                        "name": "1.2",
+                        "name": "1.1",
                         "tagged": false
                     }
                 ],
@@ -109,7 +109,7 @@ Below is our declaration for **BIGIP-02**.  Copy **all of** the declaration to b
                 "mtu": 1500,
                 "interfaces": [
                     {
-                        "name": "1.1",
+                        "name": "1.2",
                         "tagged": false
                     }
                 ],

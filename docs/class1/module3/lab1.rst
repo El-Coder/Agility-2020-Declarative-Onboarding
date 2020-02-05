@@ -1,7 +1,7 @@
 Lab 1 Configure Standalone BIG-IP with Declarative Onboarding
 ==============================================================
 
-In this lab declarative onboarding (DO) has already been installed.  For instructions on how to install declarative onboarding (DO) please see appendix A.
+In this lab declarative onboarding (DO) has already been installed.  For instructions on how to install declarative onboarding (DO) please see appendix B.
 
 Before we jump into declarative onboarding (DO) lets take a look at the current state of one of our **BIGIP** appliances.
 
@@ -103,7 +103,7 @@ Copy **all** of the declarative onboarding (DO) declaration below.
                 "mtu": 1500,
                 "interfaces": [
                     {
-                        "name": "1.2",
+                        "name": "1.1",
                         "tagged": false
                     }
                 ],
@@ -129,7 +129,7 @@ Copy **all** of the declarative onboarding (DO) declaration below.
                 "mtu": 1500,
                 "interfaces": [
                     {
-                        "name": "1.1",
+                        "name": "1.2",
                         "tagged": false
                     }
                 ],
@@ -202,7 +202,7 @@ One the declaration and language are set, you can highlight over sections of the
 
 
 ..  note::  Now that you've added the schema validation to your JSON declaration you can try misspelling some of the declaration objects to see errors, remember to 
-revert your changes.
+    revert your changes.
 
 We are now ready to send our declaration to **BIGIP-01**
 
@@ -238,6 +238,7 @@ Once the **BIG-IP** has finished processing the declaration, login to **BIGIP01*
 
 |
 |
+
 Futhermore, take a look at the following settings on **BIGIP01** to see what all was configured with declarative onboarding (DO)
 
     - Credentials
