@@ -116,6 +116,13 @@ Copy **all** of the declarative onboarding (DO) declaration below.
                 "allowService": "default",
                 "trafficGroup": "traffic-group-local-only"
             },
+            "internal-floating": {
+                "class": "SelfIp",
+                "address": "10.1.10.120/24",
+                "vlan": "internal",
+                "allowService": "default",
+                "trafficGroup": "traffic-group-1"
+            },
             "external": {
                 "class": "VLAN",
                 "tag": 4094,
@@ -134,6 +141,13 @@ Copy **all** of the declarative onboarding (DO) declaration below.
                 "vlan": "external",
                 "allowService": "none",
                 "trafficGroup": "traffic-group-local-only"
+            },
+            "external-floating": {
+                "class": "SelfIp",
+                "address": "10.1.20.120/24",
+                "vlan": "external",
+                "allowService": "default",
+                "trafficGroup": "traffic-group-1"
             },
             "default": {
                 "class": "Route",

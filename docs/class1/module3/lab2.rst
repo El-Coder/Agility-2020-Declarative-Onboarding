@@ -161,7 +161,7 @@ Below is our declaration for **BIGIP-02**.  Copy **all of** the declaration to b
                 "class": "DeviceTrust",
                 "localUsername": "admin",
                 "localPassword": "@gi1ity2020",
-                "remoteHost": "10.1.1.4",
+                "remoteHost": "10.1.1.7",
                 "remoteUsername": "admin",
                 "remotePassword": "@gi1ity2020"
             }
