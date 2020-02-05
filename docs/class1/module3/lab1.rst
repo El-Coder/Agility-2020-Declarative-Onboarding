@@ -181,7 +181,7 @@ Copy **all** of the declarative onboarding (DO) declaration below.
                 "class": "DeviceTrust",
                 "localUsername": "admin",
                 "localPassword": "@gi1ity2020",
-                "remoteHost": "10.1.1.7",
+                "remoteHost": "/Common/failoverGroup/members/0",
                 "remoteUsername": "admin",
                 "remotePassword": "@gi1ity2020"
             }
