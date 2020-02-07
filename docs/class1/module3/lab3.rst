@@ -11,14 +11,27 @@ Licensing for the **BIGIP**
 DNS
 NTP
 Regular user
-Provision LTM, DNS
+Provision LTM, DNS, AFM
 Internal VLAN
 Non floating self IP on internal VLAN
 External VLAN
 Non floating self IP on external VLAN
 Syslog destination
-Enable autoPhonehome
-Enable an advisory mess in the **BIGIP** UI
+Enable an advisory message in the UI that show the hostname with a green background. **(Extra cool points if you use a JSON pointer for the hostname)**
+
+..  note
+    Use the table below for the necessary values in your declaration
+
+..  list-table:: Declaration Values
+    :widths: 25 25 25
+    :header-rows: 1
+
+    * - Heading row 1, column 1
+      - Heading row 1, column 2
+      - Heading row 1, column 3
+    * - Row 1, column 1
+      - Row 1, column 2
+      - Row 1, column 3
 
 The schema reference can be found at the following url: https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/schema-reference.html#syslogremoteserver
 Example declarations can be found at the following url: https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/examples.html
