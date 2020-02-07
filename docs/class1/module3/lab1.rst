@@ -1,7 +1,7 @@
 Lab 1 Configure Standalone BIG-IP with Declarative Onboarding
 ==============================================================
 
-In this lab declarative onboarding (DO) has already been installed.  For instructions on how to install declarative onboarding (DO) please see appendix B.
+In this lab declarative onboarding (DO) has already been installed.  For instructions on how to install declarative onboarding (DO) please see appendix A.
 
 Before we jump into declarative onboarding (DO) lets take a look at the current state of one of our **BIGIP** appliances.
 
