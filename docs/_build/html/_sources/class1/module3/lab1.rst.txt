@@ -103,7 +103,7 @@ Copy **all** of the declarative onboarding (DO) declaration below.
                 "mtu": 1500,
                 "interfaces": [
                     {
-                        "name": "1.2",
+                        "name": "1.1",
                         "tagged": false
                     }
                 ],
@@ -116,13 +116,20 @@ Copy **all** of the declarative onboarding (DO) declaration below.
                 "allowService": "default",
                 "trafficGroup": "traffic-group-local-only"
             },
+            "internal-floating": {
+                "class": "SelfIp",
+                "address": "10.1.10.120/24",
+                "vlan": "internal",
+                "allowService": "default",
+                "trafficGroup": "traffic-group-1"
+            },
             "external": {
                 "class": "VLAN",
                 "tag": 4094,
                 "mtu": 1500,
                 "interfaces": [
                     {
-                        "name": "1.1",
+                        "name": "1.2",
                         "tagged": false
                     }
                 ],
@@ -134,6 +141,13 @@ Copy **all** of the declarative onboarding (DO) declaration below.
                 "vlan": "external",
                 "allowService": "none",
                 "trafficGroup": "traffic-group-local-only"
+            },
+            "external-floating": {
+                "class": "SelfIp",
+                "address": "10.1.20.120/24",
+                "vlan": "external",
+                "allowService": "default",
+                "trafficGroup": "traffic-group-1"
             },
             "default": {
                 "class": "Route",
@@ -167,7 +181,7 @@ Copy **all** of the declarative onboarding (DO) declaration below.
                 "class": "DeviceTrust",
                 "localUsername": "admin",
                 "localPassword": "@gi1ity2020",
-                "remoteHost": "10.1.1.7",
+                "remoteHost": "/Common/failoverGroup/members/0",
                 "remoteUsername": "admin",
                 "remotePassword": "@gi1ity2020"
             }
@@ -188,7 +202,7 @@ One the declaration and language are set, you can highlight over sections of the
 
 
 ..  note::  Now that you've added the schema validation to your JSON declaration you can try misspelling some of the declaration objects to see errors, remember to 
-revert your changes.
+    revert your changes.
 
 We are now ready to send our declaration to **BIGIP-01**
 
@@ -224,6 +238,7 @@ Once the **BIG-IP** has finished processing the declaration, login to **BIGIP01*
 
 |
 |
+
 Futhermore, take a look at the following settings on **BIGIP01** to see what all was configured with declarative onboarding (DO)
 
     - Credentials

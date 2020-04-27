@@ -83,7 +83,7 @@ Below is our declaration for **BIGIP-02**.  Copy **all of** the declaration to b
                 "mtu": 1500,
                 "interfaces": [
                     {
-                        "name": "1.2",
+                        "name": "1.1",
                         "tagged": false
                     }
                 ],
@@ -109,7 +109,7 @@ Below is our declaration for **BIGIP-02**.  Copy **all of** the declaration to b
                 "mtu": 1500,
                 "interfaces": [
                     {
-                        "name": "1.1",
+                        "name": "1.2",
                         "tagged": false
                     }
                 ],
@@ -161,7 +161,7 @@ Below is our declaration for **BIGIP-02**.  Copy **all of** the declaration to b
                 "class": "DeviceTrust",
                 "localUsername": "admin",
                 "localPassword": "@gi1ity2020",
-                "remoteHost": "10.1.1.4",
+                "remoteHost": "/Common/failoverGroup/members/0",
                 "remoteUsername": "admin",
                 "remotePassword": "@gi1ity2020"
             }
