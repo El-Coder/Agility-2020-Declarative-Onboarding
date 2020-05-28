@@ -5,7 +5,7 @@
   <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3-staging.js"></script>
   <!--Production:-->
   <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3.js"></script>
-    <title>Lab 3 (Optional) Build a declaration from scratch</title>
+    <title>Lab 3 (Optional) Onboard a BIGIP via BIGIQ</title>
   
 
   <meta charset="utf-8">
@@ -14,7 +14,7 @@
   <!-- F5 metadata -->
   <meta name="kb_doc_type" content="Manual"/>
   <meta name="kb_doc_type" content="User Guide"/>
-  <meta name="title" content="Lab 3 (Optional) Build a declaration from scratch"/>
+  <meta name="title" content="Lab 3 (Optional) Onboard a BIGIP via BIGIQ"/>
   <meta name="product" content="Getting Started with F5 BIG-IP"/>
   <meta name="version" content=""/>
   <meta name="updated_date"  content="None"/>
@@ -36,7 +36,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Lab 3 (Optional) Build a declaration from scratch &#8212; Getting Started with F5 BIG-IP  documentation</title>
+    <title>Lab 3 (Optional) Onboard a BIGIP via BIGIQ &#8212; Getting Started with F5 BIG-IP  documentation</title>
     <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/f5_agility_theme.css" type="text/css" />
@@ -75,7 +75,7 @@
         <h5>Current Page</h5>
         <span class="nav-sidebartoc">
             <ul>
-<li><a class="reference internal" href="#">Lab 3 (Optional) Build a declaration from scratch</a></li>
+<li><a class="reference internal" href="#">Lab 3 (Optional) Onboard a BIGIP via BIGIQ</a></li>
 </ul>
 
          </span>
@@ -100,88 +100,189 @@
     <article class="docs-container site-article-inner">
             <nav class="site-breadcrumb-nav site-nav">
           <ul class="site-breadcrumb-list">
-            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">Getting Started with F5 BIG-IP </a> &gt; Lab 3 (Optional) Build a declaration from scratch</li>
+            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">Getting Started with F5 BIG-IP </a> &gt; Lab 3 (Optional) Onboard a BIGIP via BIGIQ</li>
           </ul>
       </nav>
       
       
 
     
-  <div class="section" id="lab-3-optional-build-a-declaration-from-scratch">
-<h1>Lab 3 (Optional) Build a declaration from scratch<a class="headerlink" href="#lab-3-optional-build-a-declaration-from-scratch" title="Permalink to this headline">¶</a></h1>
-<p>Up to this point we’ve given you the necessary declaration needed to onboard
-your <strong>BIGIP</strong>.</p>
-<p>In this lab you will start from a blank state and build the declaration on your
-own.  Use the F5 schema reference and the published schema validation for
-declarative onboarding to help you accomplish the task below.</p>
-<p>Onboard a standalone <strong>BIGIP</strong> that includes the following in the declaration:</p>
+  <div class="section" id="lab-3-optional-onboard-a-bigip-via-bigiq">
+<h1>Lab 3 (Optional) Onboard a BIGIP via BIGIQ<a class="headerlink" href="#lab-3-optional-onboard-a-bigip-via-bigiq" title="Permalink to this headline">¶</a></h1>
+<p>In the previous labs, we pushed the declaration directly to BIGIPs . In this lab, we are going to send our JSON declaration to the BIGIQ, which will configure the BIGIP.</p>
+<p>Review the declaration for BIGIP-03, and notice the following changes:</p>
 <ul class="simple">
-<li>Licensing for the <strong>BIGIP</strong></li>
-<li>DNS</li>
-<li>NTP</li>
-<li>Regular user</li>
-<li>Provision LTM, DNS, AFM</li>
-<li>Internal VLAN</li>
-<li>Non floating self IP on internal VLAN</li>
-<li>External VLAN</li>
-<li>Non floating self IP on external VLAN</li>
-<li>Syslog destination <strong>In this lab there is no syslog server configured, the
-declaration is for demonstration purposes</strong></li>
-<li>Enable an advisory message in the UI that show the hostname with a green
-background. <strong>(Extra cool points if you use a JSON pointer for the hostname)</strong></li>
+<li>Updated license class</li>
+<li>New statements to target the BIGIQ</li>
+<li>Introduced variables</li>
 </ul>
-<div class="line-block">
-<div class="line"><br /></div>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://raw.githubusercontent.com/F5Networks/f5-declarative-onboarding/master/src/schema/latest/base.schema.json&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;DO&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;declaration&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;schemaVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;1.5.0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;Device&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;async&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;Common&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;Tenant&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;myLicense&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;License&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;licensePool&quot;</span><span class="p">:</span> <span class="s2">&quot;lab-licenses&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;licenseType&quot;</span><span class="p">:</span> <span class="s2">&quot;licensePool&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;bigIpUsername&quot;</span><span class="p">:</span> <span class="s2">&quot;{{bigipusername}}&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;bigIpPassword&quot;</span><span class="p">:</span> <span class="s2">&quot;{{bigippassword}}&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;myProvisioning&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;Provision&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;ltm&quot;</span><span class="p">:</span> <span class="s2">&quot;nominal&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;gtm&quot;</span><span class="p">:</span> <span class="s2">&quot;minimum&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;afm&quot;</span><span class="p">:</span> <span class="s2">&quot;minimum&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;myDns&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;DNS&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;nameServers&quot;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="s2">&quot;8.8.8.8&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;2001:4860:4860::8844&quot;</span>
+              <span class="p">],</span>
+              <span class="nt">&quot;search&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;f5.com&quot;</span>
+              <span class="p">]</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;myNtp&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;NTP&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;servers&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">&quot;0.pool.ntp.org&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;1.pool.ntp.org&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;2.pool.ntp.org&quot;</span>
+              <span class="p">],</span>
+              <span class="nt">&quot;timezone&quot;</span><span class="p">:</span> <span class="s2">&quot;UTC&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;external&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;VLAN&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;interfaces&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1.1&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;tagged&quot;</span><span class="p">:</span> <span class="kc">false</span>
+                  <span class="p">}</span>
+              <span class="p">]</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;internal&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;VLAN&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;interfaces&quot;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;tagged&quot;</span><span class="p">:</span> <span class="kc">false</span>
+                  <span class="p">}</span>
+              <span class="p">]</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;external-fl&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;vlan&quot;</span><span class="p">:</span> <span class="s2">&quot;external&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;SelfIp&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{{externalfl}}/24&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;trafficGroup&quot;</span><span class="p">:</span> <span class="s2">&quot;traffic-group-1&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;internal-fl&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;vlan&quot;</span><span class="p">:</span> <span class="s2">&quot;internal&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;SelfIp&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{{internalfl}}/24&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;trafficGroup&quot;</span><span class="p">:</span> <span class="s2">&quot;traffic-group-1&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;external-self&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;vlan&quot;</span><span class="p">:</span> <span class="s2">&quot;external&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;SelfIp&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{{host1-externalself}}/24&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;allowService&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;internal-self&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;vlan&quot;</span><span class="p">:</span> <span class="s2">&quot;internal&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;SelfIp&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{{host1-internalself}}/24&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;defualt&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;gw&quot;</span><span class="p">:</span> <span class="s2">&quot;{{defaultgw}}&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;Route&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;myConfigSync&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;ConfigSync&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;configsyncIp&quot;</span><span class="p">:</span> <span class="s2">&quot;{{host1-internalself}}&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;myFailoverUnicast&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;FailoverUnicast&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{{host1-internalself}}&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;{{host1name}}&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;targetUsername&quot;</span><span class="p">:</span> <span class="s2">&quot;{{bigipusername}}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;targetHost&quot;</span><span class="p">:</span> <span class="s2">&quot;{{bigip-03}}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;targetPort&quot;</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
+    <span class="nt">&quot;targetPassphrase&quot;</span><span class="p">:</span> <span class="s2">&quot;{{bigippassword}}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;bigIqSettings&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;statsConfig&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;useBigiqSync&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;conflictPolicy&quot;</span><span class="p">:</span> <span class="s2">&quot;USE_BIGIQ&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;deviceConflictPolicy&quot;</span><span class="p">:</span> <span class="s2">&quot;USE_BIGIP&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;failImportOnConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;versionedConflictPolicy&quot;</span><span class="p">:</span> <span class="s2">&quot;KEEP_VERSION&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Use the table below for the necessary values in your declaration</p>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<table border="1" class="colwidths-given docutils" id="id1">
-<caption><span class="caption-text"><strong>Declaration Values</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<p>Copy the entire declaration, and launch Postman on your host. Open the Declarative Onboarding Collection folder, then Declarative Onboardig Request, lastly BIGIP-03.</p>
+<img alt="../../_images/postman_11.png" src="../../_images/postman_11.png" />
+<p>Paste the declaration into the Body of the Postman application and click <code class="docutils literal notranslate"><span class="pre">Save</span></code>.</p>
+<img alt="../../_images/postman_12.png" src="../../_images/postman_12.png" />
+<p>Click the <code class="docutils literal notranslate"><span class="pre">Authenticate</span> <span class="pre">to</span> <span class="pre">BIG-IQ</span></code> tab to request an authentication token from the BIGIQ, and click <code class="docutils literal notranslate"><span class="pre">Send</span></code>.</p>
+<img alt="../../_images/postman_13.png" src="../../_images/postman_13.png" />
+<p>Postman returns the token which can be viewed in the results panel.</p>
+<img alt="../../_images/postman_14.png" src="../../_images/postman_14.png" />
+<p>Select the previously saved declaration by clicking <code class="docutils literal notranslate"><span class="pre">BIGIP-03</span> <span class="pre">POST</span> <span class="pre">DO</span> <span class="pre">Declaration</span> <span class="pre">to</span> <span class="pre">Configure</span> <span class="pre">BIG-IP</span></code>, and hit <code class="docutils literal notranslate"><span class="pre">Send</span></code>.</p>
+<img alt="../../_images/postman_15.png" src="../../_images/postman_15.png" />
+<p>Use the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">Declaration</span> <span class="pre">Onboarding</span> <span class="pre">Status</span></code> and monitor the declaration. Continue to monitoring till the status changes to OK and message equals success.</p>
+<img alt="../../_images/postman_16.png" src="../../_images/postman_16.png" />
+<p>Login into the BIGIQ at <a class="reference external" href="https://10.1.1.9">https://10.1.1.9</a>, navigate to Devices, and BIG-IP Devices. BIGIP-O3 is now apart of the BIGIQ device inventory.</p>
+<table border="1" class="colwidths-given docutils">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="20%" />
+<col width="40%" />
+<col width="40%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Value</th>
+<tr class="row-odd"><th class="head stub"><strong>System Type</strong></th>
+<th class="head"><strong>Networks</strong></th>
+<th class="head"><strong>Credentials</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>regKey</td>
-<td>X0400-17381-92678-76392-8132569</td>
-</tr>
-<tr class="row-odd"><td>nameServers</td>
-<td>10.1.255.254, 8.8.8.8</td>
-</tr>
-<tr class="row-even"><td>NTP servers</td>
-<td>0.pool.ntp.org, 1.pool.ntp.org</td>
-</tr>
-<tr class="row-odd"><td>internal VLAN</td>
-<td>interface 1.1</td>
-</tr>
-<tr class="row-even"><td>internal self-IP</td>
-<td>10.1.10.250</td>
-</tr>
-<tr class="row-odd"><td>external VLAN</td>
-<td>interface 1.2</td>
-</tr>
-<tr class="row-even"><td>external self-IP</td>
-<td>10.1.20.250</td>
-</tr>
-<tr class="row-odd"><td>SyslogRemoteServer</td>
-<td>host 10.1.10.254</td>
+<tr class="row-even"><th class="stub">BIGIQ</th>
+<td>Management: 10.1.1.9</td>
+<td>admin / &#64;gi1ity2020</td>
 </tr>
 </tbody>
 </table>
-<p>The schema reference can be found at the following url:
-<a class="reference external" href="https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/schema-reference.html#syslogremoteserver">https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/schema-reference.html#syslogremoteserver</a></p>
-<p>Example declarations can be found at the following url:
-<a class="reference external" href="https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/examples.html">https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/examples.html</a></p>
+<img alt="../../_images/bigiq_1.png" src="../../_images/bigiq_1.png" />
+<p>Login into BIGIP-03 at <a class="reference external" href="https://10.1.1.8">https://10.1.1.8</a>, and review the configurations.</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="40%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub"><strong>System Type</strong></th>
+<th class="head"><strong>Networks</strong></th>
+<th class="head"><strong>Credentials</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">BIGIP-03</th>
+<td>Management: 10.1.1.8</td>
+<td>admin / &#64;gi1ity2020</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
